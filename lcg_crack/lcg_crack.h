@@ -17,7 +17,8 @@ namespace lcg {
 */
 template< 
 	typename T, 
-	std::enable_if_t<std::is_integral<T>::value, bool> = true>
+	std::enable_if_t<std::is_integral<T>::value, bool> = true
+>
 class Predictor {
 public:
 	Predictor() = delete;
@@ -58,7 +59,6 @@ private:
 	{
 		if (y == 1)
 			return true;
-
 		if (std::gcd(x, y) == 1)
 			return false;
 		return is_divisible_by_all_primes(x, y / std::gcd(x, y));
@@ -76,30 +76,6 @@ private:
 	}
 
 	void solve() noexcept {
-		/*
-		* Упрощение изначальной системы уравнений:
-		* X2 = (X1 * a + c) % m (1)
-		* X3 = (X2 * a + c) % m (2)
-		* X4 = (X3 * a + c) % m (3)
-		* Приводятся к (4), (5) путем вычитания (1) из (3) и (2):
-		* X3 - X2 = ((X2 - X1) * a) % m (4)
-		* X4 - X2 = ((X3 - X1) * a) % m (5)
-		* Далее (4) умножается на (X3 - X1), а (5) - на (X2 - X1),
-		* (X3 - X2)*(X3 - X1) = ((X2 - X1)*(X3 - X1) * a) % m (5)
-		* (X4 - X2)*(X2 - X1) = ((X3 - X1)*(X2 - X1) * a) % m (6)
-		* (5) вычитается из (6):
-		* (X4 - X2)*(X2 - X1) - (X3 - X2)*(X3 - X1) = 0 % m
-		* Таким образом, m - среди делителей данного числа: 
-		*	(X4 - X2)*(X2 - X1) - (X3 - X2)*(X3 - X1)
-		* Далее находятся все делители числа, отсекаются лишние, т.к. делители:
-		* - не могут быть меньше наибольшего числа в последовательности
-		* - не могут быть больше максимального m
-		* После чего находится a и c методом подбора, при том, что:
-		*	0 < a < m;
-		*	0 <= c < m;
-		* (из условий генератора)
-		*/
-
 		auto N = std::abs((_x[3] - _x[1]) * (_x[1] - _x[0]) - (_x[2] - _x[1]) * (_x[2] - _x[0]));
 
 		std::vector<T> all_dividers{ get_all_dividers(N) };
