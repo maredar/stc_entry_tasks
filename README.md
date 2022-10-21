@@ -63,8 +63,7 @@ $$R_{13} = \sqrt{(x_s - x_1)^2 + (y_s - y_1)^2} - \sqrt{(x_s - x_3)^2 + (y_s - y
 $dt_{12} = T_1 - T_2$; $dt_{13} = T_1 - T_3$.
 
 Полная формула символьного решения для $x_s$, $y_s$ слишком длинная для разумного использования в коде, поэтому решение получено в matlab-е исключительно.
-
-![All text](https://raw.githubusercontent.com/maredar/stc_entry_tasks/master/rdm_locator/graph_solution.jpg "Графическое решение")
+Ответ для приведенных данных: ИРИ находится по координатам {1993, 4007} (с округлением). Графическое решение - "stc_entry_tasks/rdm_locator/graph_solution.jpg"
 
 ## №3 (2.4) Формирование звукового стереосигнала, по методу Interaural time difference
 ### Ответ: stereo_sound
