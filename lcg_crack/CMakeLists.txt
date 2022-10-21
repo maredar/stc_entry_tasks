@@ -2,6 +2,6 @@
 
 project ("lcg_crack")
 
-set	(CMAKE_CXX_STANDARD 20)
+set	(CMAKE_CXX_STANDARD 17)
 
 add_executable (lcg_crack "lcg_crack.cpp" "lcg_crack.h")

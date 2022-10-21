@@ -1,4 +1,4 @@
-﻿#include "lcg_reverse.h"
+﻿#include "lcg_crack.h"
 
 #include <iostream>
 #include <array>
